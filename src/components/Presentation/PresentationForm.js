@@ -3,15 +3,12 @@ import { useForm } from "./useForm";
 
 const PresentationForm = () => {
   const [inputLists, setInputList] = useState([{ achievement: "" }]);
-  const [values, handleChange] = useForm({ title: '', name: '' })  
+  const [values, handleChange] = useForm({ title: '' })  
 
   const submitHandle = (e) => {
-    e.preventDefault()
-    // console.log(values)
-    // console.log(inputLists)
+    e.preventDefault()    
     const data = {
-      title: values.title,
-      name: values.name,
+      title: values.title,      
       achievements: inputLists,
     }
     console.log(data.achievements);
@@ -46,15 +43,7 @@ const PresentationForm = () => {
             value={values.title}
             onChange={handleChange}
           />
-        </div>
-        <div className="box">
-          <input
-            name="name"
-            placeholder="Name"
-            value={values.name}
-            onChange={handleChange}
-          />
-        </div>        
+        </div>              
         {inputLists.map((inputList, i) => {
           return (
             <div key={i} className="box">
