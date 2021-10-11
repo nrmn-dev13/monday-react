@@ -69,8 +69,7 @@ export const AuthContextProvider = (props) => {
   };
 
   useEffect(() => {
-    if (tokenData) {
-      console.log(tokenData.duration);
+    if (tokenData) {      
       logoutTimer = setTimeout(logoutHandler, tokenData.duration);
     }
   }, [tokenData, logoutHandler]);
