@@ -4,15 +4,21 @@ import Layout from './components/Layout/Layout';
 import UserProfile from './components/Profile/UserProfile';
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
+import NewPresentationPage from './pages/NewPresentation';
 import { useContext } from 'react';
 
 function App() {
   const authCtx = useContext(AuthContext)
   return (
     <Layout>
-      <Switch>
+      <Switch>        
         <Route path='/' exact>
-          <HomePage />
+          {authCtx.isLoggedIn && <HomePage />}
+          {!authCtx.isLoggedIn && <Redirect to='/auth' />}
+        </Route>
+        <Route path='/create-presentation'>
+          {authCtx.isLoggedIn && <NewPresentationPage />}
+          {!authCtx.isLoggedIn && <Redirect to='/auth' />}
         </Route>
         {!authCtx.isLoggedIn && (
           <Route path='/auth'>
