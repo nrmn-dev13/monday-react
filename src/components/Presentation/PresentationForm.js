@@ -2,35 +2,35 @@ import { useState } from "react"
 import { useForm } from "./useForm";
 
 const PresentationForm = () => {
-  const [inputLists, setInputList] = useState([{ achievement: "" }]);
+  const [achievementLists, setAchievementLists] = useState([{ achievement: "" }]);
   const [values, handleChange] = useForm({ title: '' })  
 
   const submitHandle = (e) => {
     e.preventDefault()    
     const data = {
       title: values.title,      
-      achievements: inputLists,
+      achievements: achievementLists,
     }
-    console.log(data.achievements);
+    console.log(data);
   }
 
   // handle input change
   const handleInputChange = (e, index) => {
-    const values = [...inputLists]
+    const values = [...achievementLists]
     values[index][e.target.name] = e.target.value
-    setInputList(values);
+    setAchievementLists(values);
   };
 
   // // handle click event of the Remove button
   const handleRemoveClick = index => {
-    const list = [...inputLists];
+    const list = [...achievementLists];
     list.splice(index, 1);
-    setInputList(list);
+    setAchievementLists(list);
   };
 
   // // handle click event of the Add button
   const handleAddClick = () => {
-    setInputList([...inputLists, { achievement: "" }]);
+    setAchievementLists([...achievementLists, { achievement: "" }]);
   };
   return (
     <div>
@@ -44,7 +44,7 @@ const PresentationForm = () => {
             onChange={handleChange}
           />
         </div>              
-        {inputLists.map((inputList, i) => {
+        {achievementLists.map((inputList, i) => {
           return (
             <div key={i} className="box">
               <input
@@ -54,8 +54,8 @@ const PresentationForm = () => {
                 onChange={e => handleInputChange(e, i)}
               />
               <div className="btn-box">
-                {inputLists.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
-                {inputLists.length !== 1 &&
+                {achievementLists.length - 1 === i && <button onClick={handleAddClick}>Add</button>}
+                {achievementLists.length !== 1 &&
                   <button onClick={() => handleRemoveClick(i)}>Remove</button>}
               </div>
             </div>
