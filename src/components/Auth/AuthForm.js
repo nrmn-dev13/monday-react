@@ -1,9 +1,11 @@
 import { useState, useRef, useContext } from 'react';
 import AuthContext from '../../store/auth-context';
+import { useHistory } from 'react-router';
 
 import classes from './AuthForm.module.css';
 
 const AuthForm = () => {
+  const history = useHistory()
   const emailInputRef = useRef()
   const passwordInputRef = useRef()
 
@@ -39,7 +41,7 @@ const AuthForm = () => {
           'Content-Type': 'application.json'
         }
       }
-    ).then(res => {
+    ).then((res) => {
       setIsLoading(false)
       if (res.ok) {
         return res.json();
@@ -52,6 +54,7 @@ const AuthForm = () => {
     })
     .then((data) => {
       authCtx.login(data.idToken)
+      history.replace('/')
     })
     .catch((err) => {
       alert(err.message)
