@@ -16,16 +16,16 @@ const PresentationForm = () => {
 
   // handle input change
   const handleInputChange = (e, index) => {
-    const values = [...achievementLists]
-    values[index][e.target.name] = e.target.value
-    setAchievementLists(values);
+    const achievementValues = [...achievementLists]
+    achievementValues[index][e.target.name] = e.target.value
+    setAchievementLists(achievementValues);
   };
 
   // // handle click event of the Remove button
   const handleRemoveClick = index => {
-    const list = [...achievementLists];
-    list.splice(index, 1);
-    setAchievementLists(list);
+    const currentAchievement = [...achievementLists];
+    currentAchievement.splice(index, 1);
+    setAchievementLists(currentAchievement);
   };
 
   // // handle click event of the Add button
@@ -44,13 +44,13 @@ const PresentationForm = () => {
             onChange={handleChange}
           />
         </div>              
-        {achievementLists.map((inputList, i) => {
+        {achievementLists.map((achievementList, i) => {
           return (
             <div key={i} className="box">
               <input
                 name="achievement"
                 placeholder="Add achievement"
-                value={inputList.achievement}
+                value={achievementList.achievement}
                 onChange={e => handleInputChange(e, i)}
               />
               <div className="btn-box">
