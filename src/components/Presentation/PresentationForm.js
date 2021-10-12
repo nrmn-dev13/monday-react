@@ -2,19 +2,20 @@ import { useState } from "react"
 import { useForm } from "./useForm";
 import classes from './PresentationForm.module.css';
 
-const PresentationForm = () => {
+const PresentationForm = (props) => {
   const [achievementLists, setAchievementLists] = useState([{ achievement: "" }]);
   const [divisionLists, setDivisionLists] = useState([{ role: "", finished: "", wip: "", goals: "" }]);
   const [values, handleChange] = useForm({ title: '' })
 
   const submitHandle = (e) => {
-    e.preventDefault()
-    const data = {
+    e.preventDefault()    
+    const presentationData = {
       title: values.title,
       achievements: achievementLists,
       divisions: divisionLists
     }
-    console.log(data);
+    console.log(presentationData);
+    //props.onAddPresentation(presentationData);
   }
 
   // handle input change
