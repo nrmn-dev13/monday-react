@@ -7,11 +7,27 @@ const PresentationList = (props) => {
           <PresentationItem
             key={presentation.id}
             title={presentation.title}
-            achievements={presentation.achievements}
-            divisions={presentation.divisions}
+            achievements={presentation.achievements.map((sub) => {
+              return sub.achievement
+            })}
+            divisions={presentation.divisions.map((sub) => {
+              return sub
+            })}
           />
         )
       })}
+      {/* {props.data.map((item) => {
+        return (
+          <PresentationItem
+            key={item.id}
+            title={item.title}            
+            address={item.address}
+            vehicle={item.vehicle.map((sub) => {
+              return sub.car
+            })}
+          />
+        )
+      })} */}
     </ul>
   )
 }
