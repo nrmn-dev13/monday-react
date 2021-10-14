@@ -1,18 +1,24 @@
-const PresentationItem = (props) => {  
+const PresentationItem = (props) => {
+  const { title, achievements, divisions } = props;
   return (
-    <li>      
-      <p>{props.title}</p>
-      {props.achievements.map((item, index) =>{
-        return (
-          <p key={index} >{item}</p>
-        )
-      })}
-      {Object.keys(props.divisions).map((item, index) =>{
-        return (
-          <p key={index} >{item}</p>
-        )
-      })}
+    <li>
+      {/* <p>{props.title}</p>
+      <p>{props.address}</p> */}
+      <p>{title}</p>
+      <p>{divisions}</p>
       
+      {achievements.map((achievement, index) =>{
+        return (
+          <p key={index} >{achievement}</p>
+        )
+      })}
+      {/* <p>{props.divisions}</p> */}
+      {/* {props.divisions.map((item, index) =>{
+        return (
+          <p key={index} >{item}</p>
+        )
+      })} */}
+
     </li>
   )
 }

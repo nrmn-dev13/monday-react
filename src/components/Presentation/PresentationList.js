@@ -1,5 +1,10 @@
 import PresentationItem from "./PresentationItem";
 const PresentationList = (props) => {
+  // const {data} = props;
+  // const output = data.map((item)=>{
+  //   return item.vehicles.map((vh)=>Object.values(vh)).join(', ')
+  // })  
+
   return (
     <ul>
       {props.presentations.map((presentation) => {
@@ -10,9 +15,7 @@ const PresentationList = (props) => {
             achievements={presentation.achievements.map((sub) => {
               return sub.achievement
             })}
-            divisions={presentation.divisions.map((sub) => {
-              return sub
-            })}
+            divisions={presentation.divisions.map((division)=>Object.values(division)).join(' , ')}
           />
         )
       })}
@@ -21,10 +24,8 @@ const PresentationList = (props) => {
           <PresentationItem
             key={item.id}
             title={item.title}            
-            address={item.address}
-            vehicle={item.vehicle.map((sub) => {
-              return sub.car
-            })}
+            address={item.address}            
+            vehicles={item.vehicles}
           />
         )
       })} */}

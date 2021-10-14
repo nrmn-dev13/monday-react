@@ -5,7 +5,7 @@ import classes from './PresentationForm.module.css';
 const PresentationForm = (props) => {
   const [achievementLists, setAchievementLists] = useState([{ achievement: "" }]);
   const [divisionLists, setDivisionLists] = useState([{ role: "", finished: "", wip: "", goals: "" }]);
-  const [values, handleChange] = useForm({ title: '' })
+  const [values, handleChange] = useForm({ title: '' })  
 
   const submitHandle = (e) => {
     e.preventDefault()    
@@ -13,9 +13,8 @@ const PresentationForm = (props) => {
       title: values.title,
       achievements: achievementLists,
       divisions: divisionLists
-    }
-    console.log(presentationData);
-    //props.onAddPresentation(presentationData);
+    }    
+    props.onAddPresentation(presentationData);    
   }
 
   // handle input change
