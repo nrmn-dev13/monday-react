@@ -6,3 +6,22 @@
 .starting h1 {
   font-size: 5rem;
 }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin: 0 auto;
+  width: 30%;
+}
+ul li {
+  border: 2px solid #38015c;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 15px auto;
+} 
+ul li h2, h4 {
+  text-align: left;
+}
+p {
+  text-align: left;
+}
