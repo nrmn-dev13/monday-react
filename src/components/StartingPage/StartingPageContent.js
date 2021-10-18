@@ -25,14 +25,12 @@ const StartingPageContent = () => {
           id: key,
           ...data[key]
         }
-        presentations.push(presentation);
-        //console.log(presentations);
+        presentations.push(presentation);        
       }
 
       setIsLoading(false)
       setloadedPresentations(presentations)      
-    });
-    //console.log(DUMMY_DATA);
+    });    
   }, []);
   if (isLoading) {
     return (
