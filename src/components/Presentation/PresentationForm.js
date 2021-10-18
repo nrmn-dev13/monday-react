@@ -3,21 +3,25 @@ import classes from './PresentationForm.module.css';
 import { useHistory } from "react-router-dom";
 
 const initialValues = {
-  title: "",
-  age: 0
+  title: '',
+  uiFinished: '',
+  uiWip: '',
+  uiGoals: '',
 }
 
 const PresentationForm = (props) => {
   const history = useHistory();
   const [values, handleChange] = useForm(initialValues)
-  const {title, age} = values
+  const { title, uiFinished, uiWip, uiGoals } = values
 
   const submitHandle = (e) => {
-    e.preventDefault()    
+    e.preventDefault()
     const presentationData = {
-      name: title,      
-      age: Number(age),      
-    }    
+      title: title,
+      uFinished: uiFinished,
+      uWip: uiWip,
+      uGoals: uiGoals,
+    }
     props.onAddPresentation(presentationData);
     history.replace('/');
   }
@@ -37,16 +41,39 @@ const PresentationForm = (props) => {
             />
           </div>
           <div className={classes.formField}>
-            <label htmlFor="title" className="label">Title</label>
-            <input
-              id="age"
-              name="age"
-              placeholder="age"
-              value={age}
-              onChange={handleChange}
-            />
+            <label htmlFor="title" className="label">UI Finished</label>
+            <textarea 
+              name="uiFinished" 
+              id="uiFinished" 
+              cols="30" 
+              rows="3"
+              placeholder="Finished"
+              value={uiFinished}
+              onChange={handleChange}></textarea>
           </div>
-        </div>        
+          <div className={classes.formField}>
+            <label htmlFor="title" className="label">UI Wip</label>
+            <textarea 
+              name="uiWip" 
+              id="uiWip" 
+              cols="30" 
+              rows="3"
+              placeholder="Work In Progress"
+              value={uiWip}
+              onChange={handleChange}></textarea>
+          </div>
+          <div className={classes.formField}>
+            <label htmlFor="title" className="label">UI Goals</label>
+            <textarea 
+              name="uiGoals" 
+              id="uiGoals" 
+              cols="30" 
+              rows="3"
+              placeholder="Goals"
+              value={uiGoals}
+              onChange={handleChange}></textarea>
+          </div>
+        </div>
         <button>submit</button>
       </form>
     </div>

@@ -7,8 +7,10 @@ const PresentationList = (props) => {
         return (
           <PresentationItem
             key={presentation.id}
-            title={presentation.name}            
-            age={presentation.age}            
+            title={presentation.title}
+            uFinished={presentation.uFinished}
+            uWip={presentation.uWip}
+            uGoals={presentation.uGoals}
           />
         )
       })}      
