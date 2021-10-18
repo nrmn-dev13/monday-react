@@ -16,15 +16,15 @@ const StartingPageContent = () => {
   }  
 
   useEffect(() => {
-    setIsLoading(true);
     const getUsers = async () => {      
+      setIsLoading(true);
       const data  = await getDocs(usersCollectionRef);
       const presentations = data.docs.map((doc) => ({...doc.data(), id: doc.id}))      
+      setIsLoading(false)
       setloadedPresentations(presentations)
     }
     getUsers();
-    setIsLoading(false)
-  }, [usersCollectionRef])
+  }, [])
 
   if (isLoading) {
     return (

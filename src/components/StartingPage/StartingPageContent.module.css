@@ -6,14 +6,14 @@
 .starting h1 {
   font-size: 5rem;
 }
-ul {
+.custom-list {
   list-style: none;
   padding: 0;
   margin: 0;
   margin: 0 auto;
   width: 30%;
 }
-ul li {
+.custom-list .custom-list-item {
   border: 2px solid #38015c;
   border-radius: 8px;
   padding: 10px;

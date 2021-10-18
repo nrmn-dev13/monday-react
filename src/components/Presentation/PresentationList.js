@@ -2,7 +2,7 @@ import PresentationItem from "./PresentationItem";
 const PresentationList = (props) => { 
 
   return (
-    <ul>
+    <ul className="custom-list">
       {props.presentations.map((presentation) => {
         return (
           <PresentationItem

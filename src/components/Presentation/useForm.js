@@ -2,6 +2,10 @@ import { useState } from "react";
 
 export const useForm = (initialValues) => {
   const [values, setValues] = useState(initialValues)
+  const changeHandler = (event, editor) => {
+    const data = editor.getData()
+    setValues(data)
+  }
 
   return [
     values,
@@ -10,6 +14,7 @@ export const useForm = (initialValues) => {
         ...values,
         [e.target.name]: e.target.value
       })
-    }
+    },
+    changeHandler
   ]
 }

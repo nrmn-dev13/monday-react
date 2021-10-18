@@ -17,3 +17,9 @@ h5,
 h6 {
   font-family: 'Lato', sans-serif;
 }
+.ck.ck-editor {
+  width: 100% !important;
+}
+.ck-editor__editable{  
+  min-height: 250px;
+}

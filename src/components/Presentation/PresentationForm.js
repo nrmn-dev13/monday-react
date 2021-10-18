@@ -1,6 +1,9 @@
 import { useForm } from "./useForm";
 import classes from './PresentationForm.module.css';
 import { useHistory } from "react-router-dom";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { useState } from "react";
 
 const initialValues = {
   title: '',
@@ -12,19 +15,26 @@ const initialValues = {
 const PresentationForm = (props) => {
   const history = useHistory();
   const [values, handleChange] = useForm(initialValues)
+  const [text, setText] = useState('')
   const { title, uiFinished, uiWip, uiGoals } = values
 
   const submitHandle = (e) => {
     e.preventDefault()
     const presentationData = {
       title: title,
-      uFinished: uiFinished,
+      uFinished: text,
       uWip: uiWip,
       uGoals: uiGoals,
     }
     props.onAddPresentation(presentationData);
     history.replace('/');
   }
+  
+  const changeHandler = (event, editor) => {
+    const data = editor.getData()
+    setText(data)
+  }
+
   return (
     <div>
       <h1>test</h1>
@@ -41,6 +51,15 @@ const PresentationForm = (props) => {
             />
           </div>
           <div className={classes.formField}>
+            <label htmlFor="title" className="label">Ckeditor</label>
+            <CKEditor
+              rows="5"
+              editor={ClassicEditor}
+              data={text}
+              onChange={changeHandler}
+            />
+          </div>
+          {/* <div className={classes.formField}>
             <label htmlFor="title" className="label">UI Finished</label>
             <textarea 
               name="uiFinished" 
@@ -50,7 +69,7 @@ const PresentationForm = (props) => {
               placeholder="Finished"
               value={uiFinished}
               onChange={handleChange}></textarea>
-          </div>
+          </div> */}
           <div className={classes.formField}>
             <label htmlFor="title" className="label">UI Wip</label>
             <textarea 
