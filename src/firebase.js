@@ -1,6 +1,5 @@
-// Import the functions you need from the SDKs you need
-import firebase from 'firebase/app'
-import "firebase/databse";
+import { initializeApp } from "firebase/app";
+import {getFirestore} from '@firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCd__wNacyGEKZ3bqwJuTGJQe_lDiT0cP4",
@@ -11,5 +10,6 @@ const firebaseConfig = {
   appId: "1:162913847725:web:987c278f0b2ac0a5843924"
 };
 
-const fireDb = firebase.initializeApp(firebaseConfig);
-export default fireDb.database().ref();
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
