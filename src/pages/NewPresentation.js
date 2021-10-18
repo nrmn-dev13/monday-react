@@ -7,8 +7,7 @@ const NewPresentationPage = () => {
     await addDoc(usersCollectionRef, presentationData);
   }
   return (
-    <div>
-      <h1>Presentation Page</h1>
+    <div>      
       <PresentationForm onAddPresentation={addPresentationHandler}/>
     </div>
   )

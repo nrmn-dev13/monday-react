@@ -7,6 +7,7 @@ const PresentationList = (props) => {
         return (
           <PresentationItem
             key={presentation.id}
+            id={presentation.id}
             title={presentation.title}
             uFinished={presentation.uFinished}
             uWip={presentation.uWip}
