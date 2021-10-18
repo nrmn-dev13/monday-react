@@ -6,36 +6,14 @@ import { db } from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore'
 
 const StartingPageContent = () => {
-  const usersCollectionRef = collection(db, "users");
+  const usersCollectionRef = collection(db, "presentations");
   const [isLoading, setIsLoading] = useState(true);
   const [loadedPresentations, setloadedPresentations] = useState([])
 
   const history = useHistory();
   const toCreatePresentation = () => {
     history.push('/create-presentation')
-  }
-
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   fetch(
-  //     'https://monday-dev-10345-default-rtdb.firebaseio.com/presentations.json'
-  //   ).then((response) => {
-  //     return response.json();
-  //   }).then((data) => {
-  //     const presentations = [];
-      
-  //     for (const key in data) {
-  //       const presentation = {
-  //         id: key,
-  //         ...data[key]
-  //       }
-  //       presentations.push(presentation);        
-  //     }
-
-  //     setIsLoading(false)
-  //     setloadedPresentations(presentations)      
-  //   });    
-  // }, []);
+  }  
 
   useEffect(() => {
     setIsLoading(true);
