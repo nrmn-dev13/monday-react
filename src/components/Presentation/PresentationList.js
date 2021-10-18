@@ -7,8 +7,7 @@ const PresentationList = (props) => {
         return (
           <PresentationItem
             key={presentation.id}
-            title={presentation.title}
-            achievements={presentation.achievements.map((sub) => sub.achievement)}
+            title={presentation.title}            
           />
         )
       })}      

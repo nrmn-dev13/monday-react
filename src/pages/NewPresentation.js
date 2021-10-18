@@ -1,7 +1,5 @@
 import PresentationForm from "../components/Presentation/PresentationForm";
-import { useHistory } from "react-router-dom";
-const NewPresentationPage = () => {
-  const history = useHistory();
+const NewPresentationPage = () => {  
   const addPresentationHandler = (presentationData) => {
     fetch(
       'https://monday-dev-10345-default-rtdb.firebaseio.com/presentations.json',
@@ -13,7 +11,7 @@ const NewPresentationPage = () => {
         }
       }
     ).then(() => {
-      history.replace('/');
+      // success
     });
   }
   return (
