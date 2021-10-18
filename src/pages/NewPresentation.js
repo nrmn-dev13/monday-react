@@ -1,18 +1,10 @@
 import PresentationForm from "../components/Presentation/PresentationForm";
-const NewPresentationPage = () => {  
-  const addPresentationHandler = (presentationData) => {
-    fetch(
-      'https://monday-dev-10345-default-rtdb.firebaseio.com/presentations.json',
-      {
-        method: 'POST',
-        body: JSON.stringify(presentationData),
-        header: {
-          'Content-Type': 'application/json'
-        }
-      }
-    ).then(() => {
-      // success
-    });
+import { db } from "../firebase";
+import { collection, addDoc } from 'firebase/firestore'
+const NewPresentationPage = () => {
+  const usersCollectionRef = collection(db, "users");
+  const addPresentationHandler = async (presentationData) => {    
+    await addDoc(usersCollectionRef, presentationData);
   }
   return (
     <div>
