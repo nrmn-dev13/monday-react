@@ -1,8 +1,9 @@
 import PresentationItem from "./PresentationItem";
+import classes from './PresentationList.module.css';
 const PresentationList = (props) => { 
 
   return (
-    <ul className="custom-list">
+    <ul className={classes.customList}>
       {props.presentations.map((presentation) => {
         return (
           <PresentationItem

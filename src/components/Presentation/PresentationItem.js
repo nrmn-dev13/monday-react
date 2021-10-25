@@ -1,6 +1,7 @@
 import parse from 'html-react-parser';
 import { db } from '../../firebase';
 import { deleteDoc, doc } from 'firebase/firestore'
+import classes from './PresentationItem.module.css';
 
 const PresentationItem = (props) => {
   const { id, title, uFinished, uWip, uGoals} = props;
@@ -12,7 +13,7 @@ const PresentationItem = (props) => {
   }
 
   return (
-    <li id={id} className="custom-list-item">      
+    <li id={id} className={classes.customListItem}>
       <h2>Title : {title}</h2>
       <div>{parse(uFinished)}</div>
       <h2>Wip : {uWip}</h2>

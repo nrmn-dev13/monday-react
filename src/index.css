@@ -23,3 +23,6 @@ h6 {
 .ck-editor__editable{  
   min-height: 250px;
 }
+li {
+  text-align: left;
+}
